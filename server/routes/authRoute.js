@@ -83,6 +83,7 @@ router.post("/login-status", async (req, res) => {
   const loginStatus = isAuthenticated(req.session);
 
   if (!loginStatus) {
+    console.log(`req not authorized in /login-status endpoint`)
     res.status(401).json({
       message: "User not authorized to view the resource!!",
       user: req.session.username,
@@ -104,9 +105,9 @@ router.post("/logout" , (req,res) => {
     req.session.destroy(function(err) {
         if (!err) {
             res.status(200).json({message: "logged out successfully!!!"})
-        } /*else {
+        } else {
             res.status(401).json({ message: "error happened while logging out" });
-        }*/
+        }
     })
 
 })

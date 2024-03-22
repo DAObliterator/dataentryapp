@@ -95,7 +95,7 @@ export const Data = () => {
       className="flex flex-col justify-evenly items-center w-screen min-h-screen"
     >
       {dataArray && Array.isArray(dataArray) && dataArray.length > 0 && (
-        <table className="bg-slate-400 w-full max-w-screen-lg mx-auto rounded-lg overflow-hidden shadow-lg">
+        <table className="bg-slate-400 w-full max-w-screen-lg mx-auto rounded-lg overflow-hidden shadow-lg m-2">
           <thead>
             <tr className="text-white bg-gray-800">
               <th className="py-2 px-4">First Name</th>
@@ -120,7 +120,7 @@ export const Data = () => {
                     <td className="py-2 px-4">{element.degree}</td>
                     <td className="py-2 px-4">
                       <img
-                        className="w-12 h-12 rounded-full mx-auto"
+                        className="w-12 h-12 mx-auto"
                         alt="Profile"
                         src={`${import.meta.env.VITE_API}/data/images/${
                           element.profilePicture
@@ -145,7 +145,7 @@ export const Data = () => {
       <form
         action=""
         id="Details-Form-Main"
-        className="flex flex-col justify-center items-center p-2  bg-slate-300 rounded-md"
+        className="flex flex-col justify-center items-center p-2  bg-slate-300 rounded-md m-4"
         encType="multipart/form-data"
         onSubmit={(e) => handleSubmit(e)}
       >

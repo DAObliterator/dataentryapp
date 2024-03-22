@@ -1,0 +1,8 @@
+input {
+    border-radius: 6px;
+    min-height: 16px;
+}
+
+#profilePicture {
+    border-radius: none;
+}

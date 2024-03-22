@@ -104,9 +104,9 @@ router.post("/logout" , (req,res) => {
     req.session.destroy(function(err) {
         if (!err) {
             res.status(200).json({message: "logged out successfully!!!"})
-        } else {
+        } /*else {
             res.status(401).json({ message: "error happened while logging out" });
-        }
+        }*/
     })
 
 })

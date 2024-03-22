@@ -27,7 +27,7 @@ export const Login = () => {
         sessionStorage.setItem("username" ,response.data.username );
         //navigate to data route;
         navigate("/data");
-        window.location.reload();
+        //window.location.reload();
 
 
       }).catch((error) => {

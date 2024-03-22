@@ -7,7 +7,7 @@ import bcrypt from "bcryptjs";
 const router = express.Router();
 
 router.post("/login", async (req, res) => {
-  console.log(`req received to login endpoint ${req.body} \n`);
+  console.log(`req received to login endpoint ${JSON.stringify(req.body)} \n`);
 
   const { username, password } = req.body;
 
@@ -21,8 +21,10 @@ router.post("/login", async (req, res) => {
         res.status(401).json({ message: "wrong password" });
       } else {
         if (response) {
+          console.log("user was successfully authenticated \n");
           req.session.isAuthenticated = true;
           req.session.username = userExists.username;
+
           res.status(200).json({
             message: "user was successfully authenticated",
             username: userExists.username,

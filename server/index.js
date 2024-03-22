@@ -34,7 +34,7 @@ app.use(
     cookie: {
       path: "/",
       secure: false,
-      httpOnly: true,
+      httpOnly: false,
       maxAge: 10 * 60 * 1000,
     },
     secret: process.env.SECRET,

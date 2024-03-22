@@ -95,45 +95,50 @@ export const Data = () => {
       className="flex flex-col justify-evenly items-center w-screen min-h-screen"
     >
       {dataArray && Array.isArray(dataArray) && dataArray.length > 0 && (
-        <table className="bg-slate-400 w-1/2 flex flex-col justify-evenly items-center m-4 ">
-          <tr className="flex flex-row w-full">
-            <th className="flex-1">FirstName</th>
-            <th className="flex-1">LastName</th>
-            <th className="flex-1">Date Of Birth</th>
-            <th className="flex-1">College</th>
-            <th className="flex-1">Degree</th>
-            <th className="flex-1">Profile Picture</th>
-            <th className="flex-1">Delete Button</th>
-          </tr>
-          {Array.isArray(dataArray) &&
-            dataArray.length > 0 &&
-            dataArray.map((element, index) => {
-              return (
-                <tr className="flex flex-row w-full" key={element._id}>
-                  <td className="flex-1"> {element.firstName} </td>
-                  <td className="flex-1"> {element.lastName} </td>
-                  <td className="flex-1"> {element.dateOfBirth} </td>
-                  <td className="flex-1">{element.college}</td>
-                  <td className="flex-1">{element.degree}</td>
-                  <td className="flex-1">
-                    {
-                      <div>
-                        <img
-                          alt="not found"
-                          width={"50px"}
-                          src={`${import.meta.env.VITE_API}/data/images/${
-                            element.profilePicture
-                          }`}
-                        />
-                      </div>
-                    }
-                  </td>
-                  <td className="flex-1">
-                    <button onClick={(e ) => handleDataEntryDeletion(e , element._id)} key={element._id} > Delete </button>
-                  </td>
-                </tr>
-              );
-            })}
+        <table className="bg-slate-400 w-full max-w-screen-lg mx-auto rounded-lg overflow-hidden shadow-lg">
+          <thead>
+            <tr className="text-white bg-gray-800">
+              <th className="py-2 px-4">First Name</th>
+              <th className="py-2 px-4">Last Name</th>
+              <th className="py-2 px-4">Date Of Birth</th>
+              <th className="py-2 px-4">College</th>
+              <th className="py-2 px-4">Degree</th>
+              <th className="py-2 px-4">Profile Picture</th>
+              <th className="py-2 px-4">Delete Button</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.isArray(dataArray) &&
+              dataArray.length > 0 &&
+              dataArray.map((element, index) => {
+                return (
+                  <tr className="text-center" key={element._id}>
+                    <td className="py-2 px-4">{element.firstName}</td>
+                    <td className="py-2 px-4">{element.lastName}</td>
+                    <td className="py-2 px-4">{element.dateOfBirth}</td>
+                    <td className="py-2 px-4">{element.college}</td>
+                    <td className="py-2 px-4">{element.degree}</td>
+                    <td className="py-2 px-4">
+                      <img
+                        className="w-12 h-12 rounded-full mx-auto"
+                        alt="Profile"
+                        src={`${import.meta.env.VITE_API}/data/images/${
+                          element.profilePicture
+                        }`}
+                      />
+                    </td>
+                    <td className="py-2 px-4">
+                      <button
+                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        onClick={(e) => handleDataEntryDeletion(e, element._id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
         </table>
       )}
 

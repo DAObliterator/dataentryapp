@@ -61,6 +61,7 @@ export const Data = () => {
         })
         .then((response) => {
           // handle successful response
+          setDataArray(response.data.allData)
         })
         .catch((error) => {
           // handle errors

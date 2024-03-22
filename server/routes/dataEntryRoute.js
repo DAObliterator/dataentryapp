@@ -94,12 +94,16 @@ router.post("/addData", upload.single('profilePicture') , async (req, res) => {
                       college: college,
                       degree: degree,
                       profilePicture: result.Key
-                    }).then((result) => {
+                    }).then(async (result) => {
                         console.log(result, " --- newDataEntry created");
-                        res.status(200).json({
+                        let allData = await DataEntry.find({ owner: ownerId});
+                        res.status(200).json({     
+                          allData: allData,
                           message: "newDataEntry created successfully!",
                         });
                     });
+
+
 
                    
                     

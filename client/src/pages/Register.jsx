@@ -23,17 +23,24 @@ export const Register = () => {
     if ( password && username && email ) {
       setFieldEmpty(false);
 
-      axios.post("http://localhost:7080/auth/register" , { username , email , password } , { withCredentials: true } ).then((response) => {
-        if (response.status === 200) {
-          //redirect to login page 
-          alert("user successfully registered");
-          navigate("/login");
-        }
-      }).catch((error) => {
-        console.log(error , "error happened :( ")
-        setServerError(true);
-        setErrorMessage(error.message + " " + error.response.data.message)
-      })
+      axios
+        .post(
+          `${import.meta.env.VITE_API}/auth/register`,
+          { username, email, password },
+          { withCredentials: true }
+        )
+        .then((response) => {
+          if (response.status === 200) {
+            //redirect to login page
+            alert("user successfully registered");
+            navigate("/login");
+          }
+        })
+        .catch((error) => {
+          console.log(error, "error happened :( ");
+          setServerError(true);
+          setErrorMessage(error.message + " " + error.response.data.message);
+        });
 
     } else {
       setFieldEmpty(true);

@@ -8,6 +8,7 @@ export const About = () => {
      axios
        .post(
          `${import.meta.env.VITE_API}/auth/dummy-route`,
+         {},
          { withCredentials: true }
        )
        .then((response) => {

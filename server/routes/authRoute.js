@@ -86,7 +86,6 @@ router.post("/login-status", async (req, res) => {
     console.log(`req not authorized in /login-status endpoint`)
     res.status(401).json({
       message: "User not authorized to view the resource!!",
-      user: req.session.username,
     });
   } else {
     res
@@ -113,9 +112,27 @@ router.post("/logout" , (req,res) => {
 })
 
 router.post("/dummy-route", (req, res) => {
-  console.log(`you have hit /dummy-route route with a request`);
+ 
 
-  res.status(200).json({ message: "hello from /dummy-route"})
+  console.log(
+    `req recieved to the dummy-route endpoint and session --- ${JSON.stringify(
+      req.session
+    )} \n`
+  );
+
+  const loginStatus = isAuthenticated(req.session);
+
+  if (!loginStatus) {
+    console.log(`req not authorized in /dummy-route endpoint`);
+    res.status(401).json({
+      message: "User not authorized to view the resource!!",
+    });
+  } else {
+    res.status(200).json({
+      message: "user currently logged in",
+      username: req.session.username,
+    });
+  }
 });
 
 export { router as authRouter };

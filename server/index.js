@@ -28,7 +28,7 @@ mongoose.connect(DB).then(() => {
 })
 
 //EXPRESS-SESSION CONFIGURATION
-/*app.use(
+app.use(
   session({
     name: "sessionId",
     cookie: {
@@ -45,13 +45,9 @@ mongoose.connect(DB).then(() => {
       collection: "sessions",
     }),
   })
-);*/
-
-app.use(
-  session({
-    secret: "keyboard cat",
-  })
 );
+
+
 
 //ROUTES
 app.use("/auth" , authRouter );

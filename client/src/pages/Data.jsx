@@ -95,7 +95,7 @@ export const Data = () => {
       className="flex flex-col justify-evenly items-center w-screen min-h-screen"
     >
       {dataArray && Array.isArray(dataArray) && dataArray.length > 0 && (
-        <table className="bg-slate-400 w-1/2 sm:w-3/4 md:w-full mx-auto rounded-lg overflow-hidden shadow-lg m-2">
+        <table className="bg-slate-400 w-1/2 mx-auto rounded-lg overflow-hidden shadow-lg m-2">
           <thead>
             <tr className="text-white bg-gray-800">
               <th className="py-2 px-4">First Name</th>

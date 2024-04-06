@@ -28,13 +28,13 @@ mongoose.connect(DB).then(() => {
 })
 
 //EXPRESS-SESSION CONFIGURATION
-app.use(
+/*app.use(
   session({
     name: "sessionId",
     cookie: {
       path: "/",
-      /*secure: false,
-      httpOnly: false,*/
+      secure: false,
+      httpOnly: false,
       maxAge: 10 * 60 * 1000,
     },
     secret: process.env.SECRET,
@@ -44,6 +44,12 @@ app.use(
       mongoUrl: DB,
       collection: "sessions",
     }),
+  })
+);*/
+
+app.use(
+  session({
+    secret: "keyboard cat",
   })
 );
 

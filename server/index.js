@@ -36,10 +36,10 @@ app.use(
       secure: false,
       httpOnly: false,
       maxAge: 10 * 60 * 1000,
-      sameSite: "none"
+      
     },
     secret: process.env.SECRET,
-    resave: false, //saves session back to the session store even if the session was never modified
+    resave: true, //saves session back to the session store even if the session was never modified
     saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: DB,

@@ -24,7 +24,7 @@ router.post("/login", async (req, res) => {
           console.log("user was successfully authenticated \n");
           req.session.isAuthenticated = true;
           req.session.username = userExists.username;
-
+          console.log(`${JSON.stringify(req.session)} req.session object just after successfull login in login route`)
           res.status(200).json({
             message: "user was successfully authenticated",
             username: userExists.username,

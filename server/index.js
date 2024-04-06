@@ -41,6 +41,7 @@ app.use(
     secret: process.env.SECRET,
     resave: true, //saves session back to the session store even if the session was never modified
     saveUninitialized: true,
+    proxy: true,
     store: MongoStore.create({
       mongoUrl: DB,
       collection: "sessions",

@@ -16,6 +16,8 @@ app.use(
     origin: `${process.env.FRONTEND_URL}`,
     credentials: true,
     "Access-Control-Allow-Credentials": true,
+   
+  
   })
 );
 
@@ -33,9 +35,10 @@ app.use(
     name: "sessionId",
     cookie: {
       path: "/",
-      secure: false,
+      secure: true,
       httpOnly: false,
       maxAge: 10 * 60 * 1000,
+      sameSite: "none",
       
     },
     secret: process.env.SECRET,

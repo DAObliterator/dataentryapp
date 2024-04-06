@@ -112,7 +112,7 @@ router.post("/logout" , (req,res) => {
 
 })
 
-router.get("/dummy-route", (req, res) => {
+router.post("/dummy-route", (req, res) => {
   console.log(`you have hit /dummy-route route with a request`);
 
   res.status(200).json({ message: "hello from /dummy-route"})

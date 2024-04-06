@@ -95,8 +95,8 @@ export const Data = () => {
       className="flex flex-col justify-evenly items-center w-screen min-h-screen"
     >
       {dataArray && Array.isArray(dataArray) && dataArray.length > 0 && (
-        <table className="bg-slate-400 w-1/2">
-          <thead>
+        <table className="bg-slate-400 m-auto">
+          <thead  >
             <tr className="text-white bg-gray-800">
               <th className="py-2 px-4">First Name</th>
               <th className="py-2 px-4">Last Name</th>
@@ -107,7 +107,7 @@ export const Data = () => {
               <th className="py-2 px-4">Delete Button</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             {Array.isArray(dataArray) &&
               dataArray.length > 0 &&
               dataArray.map((element, index) => {

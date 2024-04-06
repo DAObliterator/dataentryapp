@@ -39,7 +39,6 @@ app.use(
       httpOnly: false,
       maxAge: 10 * 60 * 1000,
       sameSite: "none",
-      
     },
     secret: process.env.SECRET,
     resave: true, //saves session back to the session store even if the session was never modified
@@ -49,6 +48,7 @@ app.use(
       mongoUrl: DB,
       collection: "sessions",
     }),
+  
   })
 );
 
